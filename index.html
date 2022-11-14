@@ -1,0 +1,58 @@
+<!--
+ Copyright (c) 2022 Sungbae Jeong
+ 
+ This software is released under the MIT License.
+ https://opensource.org/licenses/MIT
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Vrot</title>
+</head>
+<body class="mx-10 bg-slate-700">
+    <h1 class="p-6 lg:text-4xl text-2xl font-bold text-slate-100/90">Vrot Vocabulary Memorizing Helper</h1>
+    <div>
+        <p class="p-4 text-lg font-semibold text-slate-100/90">Input .yaml or .yml files</p>
+        <input type="file" id="yaml-reader" accept=".yaml, .yml" multiple
+        class="block w-full text-sm text-slate-500
+        file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-cyan-200
+        file:border-solid file:text-sm file:font-semibold file:bg-cyan-100
+        file:text-cyan-900 hover:file:bg-violet-100 hover:file:border-violet-200">
+    </div>
+    <div class="lg:p-6 p-2">
+        <span class="lg:text-2xl text-xl font-bold text-slate-100/90">Current Voca: </span>
+        <span class="lg:text-xl text-base pl-2 text-slate-100/90" id="main-voca"></span>
+    </div>
+    <div class="text-center">
+        <button class="lg:mx-6 my-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-full shadow-md
+        hover:bg-blue-700"
+        type="button" id="known-word">I know this word</button>
+        <button class="lg:mx-6 my-4 py-2 px-4 bg-red-500 text-white font-semibold rounded-full shadow-md
+        hover:bg-red-700"
+        type="button" id="unknown-word">What is that?</button>
+    </div>
+    <div class="hidden mt-20" id="voca-answer">
+        <div class="lg:w-2/3 m-auto grid grid-cols-2 gap-2">
+            <span class="text-xl font-bold text-slate-100/90">Meaning </span>
+            <span class="text-slate-100/90" id="voca-meaning"></span>
+            <span class="hidden text-xl font-bold text-slate-100/90 synos">Synonyms </span>
+            <span class="hidden text-slate-100/90 synos" id="voca-synos"></span>
+            <span class="hidden text-xl font-bold text-slate-100/90 example">Example </span>
+            <span class="hidden text-slate-100/90 example" id="voca-example"></span>
+        </div>
+        <div class="my-10">
+            <button class="hidden my-4 py-2 px-4 bg-teal-500 text-white font-semibold rounded-full shadow-md
+            hover:bg-teal-700"
+            type="button" id="prev-answer">Previous Answer</button>
+            <button class="my-4 py-2 px-4 bg-teal-500 text-white font-semibold rounded-full shadow-md
+            hover:bg-teal-700"
+            type="button" id="next-answer">Next Answer</button>
+        </div>
+    </div>
+    <script type="module" src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "vrot",
+  "collaborators": [
+    "Sungbae Jeong <almagest0328@gmail.com>"
+  ],
+  "description": "Memorizing vocabulary helper",
+  "version": "0.2.0",
+  "license": "MIT",
+  "files": [
+    "vrot_bg.wasm",
+    "vrot.js",
+    "vrot.d.ts"
+  ],
+  "module": "vrot.js",
+  "types": "vrot.d.ts",
+  "sideEffects": false
+}
