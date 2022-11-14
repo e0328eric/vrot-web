@@ -3,6 +3,10 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 import init, { Voca, rand } from "./pkg/vrot.js";
+class Idx {
+    idx = 0;
+}
+;
 function readFilesAsText(file) {
     return new Promise((resolve, reject) => {
         let fr = new FileReader();
@@ -21,27 +25,30 @@ function main(values) {
     let mainVoca = document.querySelector("#main-voca");
     let knownButton = document.querySelector("#known-word");
     let unknownButton = document.querySelector("#unknown-word");
-    let answer = document.querySelector("#voca-answer");
-    let idx = rand(vocasLen);
-    mainVoca.textContent = vocas[idx].word;
-    knownButton.addEventListener("click", () => {
-        answer.style.display = "none";
-        idx = rand(vocasLen);
-        mainVoca.textContent = vocas[idx].word;
-    });
-    unknownButton.addEventListener("click", () => unknownButtonHandler(vocas, idx, answer));
-}
-function unknownButtonHandler(vocas, vocaIdx, answer) {
     let prevAnswer = document.querySelector("#prev-answer");
     let nextAnswer = document.querySelector("#next-answer");
+    let answer = document.querySelector("#voca-answer");
+    let vocaIdx = rand(vocasLen);
     let infoLen = vocas[vocaIdx].info.length;
     let idx = 0;
-    nextAnswer.style.display = infoLen <= 1 ? "none" : "block";
-    showAnswer(vocas, vocaIdx, answer, idx);
+    mainVoca.textContent = vocas[vocaIdx].word;
+    knownButton.addEventListener("click", () => {
+        answer.style.display = "none";
+        vocaIdx = rand(vocasLen);
+        mainVoca.textContent = vocas[vocaIdx].word;
+        infoLen = vocas[vocaIdx].info.length;
+        idx = 0;
+    });
+    unknownButton.addEventListener("click", () => {
+        prevAnswer.style.display = "none";
+        nextAnswer.style.display = infoLen <= 1 ? "none" : "block";
+        showAnswer(vocas, vocaIdx, answer, idx);
+    });
     prevAnswer.addEventListener("click", () => {
         if (idx > 0) {
             idx -= 1;
         }
+        console.log(idx);
         showAnswer(vocas, vocaIdx, answer, idx);
         if (idx <= 0) {
             prevAnswer.style.display = "none";
@@ -54,6 +61,7 @@ function unknownButtonHandler(vocas, vocaIdx, answer) {
         if (idx + 1 < infoLen) {
             idx += 1;
         }
+        console.log(idx);
         showAnswer(vocas, vocaIdx, answer, idx);
         if (idx > 0) {
             prevAnswer.style.display = "block";
