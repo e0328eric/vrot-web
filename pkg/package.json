@@ -4,8 +4,12 @@
     "Sungbae Jeong <almagest0328@gmail.com>"
   ],
   "description": "Memorizing vocabulary helper",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/e0328eric/vrot.git"
+  },
   "files": [
     "vrot_bg.wasm",
     "vrot.js",

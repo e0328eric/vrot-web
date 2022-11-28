@@ -146,13 +146,13 @@ export class Voca {
         wasm.__wbg_voca_free(ptr);
     }
     /**
-    * @param {string} yaml_string
+    * @param {string} toml_string
     * @returns {any}
     */
-    static new(yaml_string) {
+    static new(toml_string) {
         try {
             const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
-            const ptr0 = passStringToWasm0(yaml_string, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const ptr0 = passStringToWasm0(toml_string, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
             const len0 = WASM_VECTOR_LEN;
             wasm.voca_new(retptr, ptr0, len0);
             var r0 = getInt32Memory0()[retptr / 4 + 0];
@@ -169,7 +169,7 @@ export class Voca {
 }
 /**
 */
-export class VocaInfo {
+export class Word {
 
     __destroy_into_raw() {
         const ptr = this.ptr;
@@ -180,7 +180,23 @@ export class VocaInfo {
 
     free() {
         const ptr = this.__destroy_into_raw();
-        wasm.__wbg_vocainfo_free(ptr);
+        wasm.__wbg_word_free(ptr);
+    }
+}
+/**
+*/
+export class WordInfo {
+
+    __destroy_into_raw() {
+        const ptr = this.ptr;
+        this.ptr = 0;
+
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_wordinfo_free(ptr);
     }
 }
 

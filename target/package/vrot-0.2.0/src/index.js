@@ -2,7 +2,7 @@
 // 
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
-import init, { Voca, rand } from "./pkg/vrot.js";
+import init, { Voca, rand } from "../../../../pkg/vrot.js";
 class Idx {
     idx = 0;
 }
@@ -16,12 +16,11 @@ function readFilesAsText(file) {
     });
 }
 function main(values) {
-    let tomlStr = "";
+    let yamlStr = "";
     for (var value of values) {
-        tomlStr += value;
+        yamlStr += value;
     }
-    let voca = Voca.new(tomlStr);
-    let vocas = voca.voca;
+    let vocas = Voca.new(yamlStr);
     const vocasLen = vocas.length;
     let mainVoca = document.querySelector("#main-voca");
     let knownButton = document.querySelector("#known-word");
@@ -108,7 +107,7 @@ function showAnswer(vocas, vocaIdx, answer, idx) {
 // Main actor
 const runWasm = async () => {
     await init();
-    const fileSelector = document.querySelector("#file-reader");
+    const fileSelector = document.querySelector("#yaml-reader");
     fileSelector.addEventListener('change', (event) => {
         let fileList = event.target;
         let readers = [];

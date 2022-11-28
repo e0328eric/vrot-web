@@ -10,14 +10,19 @@ export function rand(limit: number): number;
 export class Voca {
   free(): void;
 /**
-* @param {string} yaml_string
+* @param {string} toml_string
 * @returns {any}
 */
-  static new(yaml_string: string): any;
+  static new(toml_string: string): any;
 }
 /**
 */
-export class VocaInfo {
+export class Word {
+  free(): void;
+}
+/**
+*/
+export class WordInfo {
   free(): void;
 }
 
@@ -26,7 +31,8 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
   readonly __wbg_voca_free: (a: number) => void;
-  readonly __wbg_vocainfo_free: (a: number) => void;
+  readonly __wbg_word_free: (a: number) => void;
+  readonly __wbg_wordinfo_free: (a: number) => void;
   readonly voca_new: (a: number, b: number, c: number) => void;
   readonly rand: (a: number) => number;
   readonly __wbindgen_add_to_stack_pointer: (a: number) => number;

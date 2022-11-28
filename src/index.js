@@ -2,7 +2,7 @@
 // 
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
-import init, { Voca, rand } from "./pkg/vrot.js";
+import init, { Voca, rand } from "../pkg/vrot.js";
 class Idx {
     idx = 0;
 }
@@ -20,7 +20,7 @@ function main(values) {
     for (var value of values) {
         tomlStr += value;
     }
-    let voca = Voca.new(tomlStr);
+    let voca = Voca.new_toml(tomlStr);
     let vocas = voca.voca;
     const vocasLen = vocas.length;
     let mainVoca = document.querySelector("#main-voca");
