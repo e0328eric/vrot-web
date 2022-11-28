@@ -21,6 +21,9 @@ function main(values) {
         tomlStr += value;
     }
     let voca = Voca.new(tomlStr);
+    if (voca === null) {
+        return;
+    }
     let vocas = voca.voca;
     const vocasLen = vocas.length;
     let mainVoca = document.querySelector("#main-voca");

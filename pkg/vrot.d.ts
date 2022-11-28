@@ -33,9 +33,8 @@ export interface InitOutput {
   readonly __wbg_voca_free: (a: number) => void;
   readonly __wbg_word_free: (a: number) => void;
   readonly __wbg_wordinfo_free: (a: number) => void;
-  readonly voca_new: (a: number, b: number, c: number) => void;
+  readonly voca_new: (a: number, b: number) => number;
   readonly rand: (a: number) => number;
-  readonly __wbindgen_add_to_stack_pointer: (a: number) => number;
   readonly __wbindgen_malloc: (a: number) => number;
   readonly __wbindgen_realloc: (a: number, b: number, c: number) => number;
   readonly __wbindgen_exn_store: (a: number) => void;
