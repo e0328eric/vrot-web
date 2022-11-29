@@ -19,6 +19,7 @@ function main(values) {
     let tomlStr = "";
     for (var value of values) {
         tomlStr += value;
+        tomlStr += '\n';
     }
     let voca = Voca.new(tomlStr);
     if (voca === null) {
