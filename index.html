@@ -1,6 +1,6 @@
 <!--
  Copyright (c) 2022 Sungbae Jeong
- 
+
  This software is released under the MIT License.
  https://opensource.org/licenses/MIT
 -->
@@ -23,9 +23,20 @@
         file:border-solid file:text-sm file:font-semibold file:bg-cyan-100
         file:text-cyan-900 hover:file:bg-violet-100 hover:file:border-violet-200">
     </div>
-    <div class="mt-4">
+    <div class="relative mt-4">
+        <div>
+            <input type="checkbox" id="unlimited"/>
+            <span class="text-lg font-semibold text-slate-100/90">Unlimited</span>
+        </div>
         <span class="lg:text-2xl text-xl font-bold text-slate-100/90">Current Voca: </span>
         <span class="lg:text-xl text-base pl-2 text-slate-100/90" id="main-voca"></span>
+        <div class="lg:text-xl text-xl font-bold text-slate-100/90 absolute top-0 right-0">
+            <span>[</span>
+            <span id="voca-num">0</span>
+            <span>/</span>
+            <span id="voca-total-num"></span>
+            <span>]</span>
+        </div>
     </div>
     <div class="text-center">
         <button class="my-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-full shadow-md
@@ -53,14 +64,6 @@
             type="button" id="next-answer">Next Answer</button>
         </div>
     </div>
-    <!-- <div class="absolute bottom-6 left-6">
-        <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/kr/">
-            <img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/2.0/kr/88x31.png"/>
-        </a>
-        <a class="font-bold text-slate-100/90" rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/kr/">
-            이 저작물은 크리에이티브 커먼즈 저작자표시-동일조건변경허락 2.0 대한민국 라이선스에 따라 이용할 수 있습니다.
-        </a>
-    </div> -->
     <script type="module" src="index.js"></script>
 </body>
 </html>

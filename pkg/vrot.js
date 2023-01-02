@@ -132,6 +132,55 @@ function getInt32Memory0() {
 }
 /**
 */
+export class HashSet {
+
+    static __wrap(ptr) {
+        const obj = Object.create(HashSet.prototype);
+        obj.ptr = ptr;
+
+        return obj;
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.ptr;
+        this.ptr = 0;
+
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_hashset_free(ptr);
+    }
+    /**
+    * @returns {HashSet}
+    */
+    static new() {
+        const ret = wasm.hashset_new();
+        return HashSet.__wrap(ret);
+    }
+    /**
+    * @param {number} item
+    */
+    insert(item) {
+        wasm.hashset_insert(this.ptr, item);
+    }
+    /**
+    * @param {number} item
+    * @returns {boolean}
+    */
+    contains(item) {
+        const ret = wasm.hashset_contains(this.ptr, item);
+        return ret !== 0;
+    }
+    /**
+    */
+    clear() {
+        wasm.hashset_clear(this.ptr);
+    }
+}
+/**
+*/
 export class Voca {
 
     __destroy_into_raw() {
@@ -226,7 +275,7 @@ function getImports() {
     imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
         takeObject(arg0);
     };
-    imports.wbg.__wbg_alert_16bf3e7d562571a8 = function(arg0, arg1) {
+    imports.wbg.__wbg_alert_4f55cf5a24a987cf = function(arg0, arg1) {
         alert(getStringFromWasm0(arg0, arg1));
     };
     imports.wbg.__wbg_randomFillSync_6894564c2c334c42 = function() { return handleError(function (arg0, arg1, arg2) {
